@@ -14,7 +14,8 @@ namespace RockPaperScissors
         
         public static void Main(string[] args)
         {
-            Console.WriteLine("Let's play Rock–Paper–Scissors (Player vs Computer / Computer vs Player) — with learning CPU");
+            Console.WriteLine("Let's play Rock–Paper–Scissors with learning CPU");
+            Console.WriteLine("Player vs Computer AND Computer vs Player");
             Console.WriteLine("Have fun!!");
 
             var rng = new SystemRandom();
@@ -70,12 +71,12 @@ namespace RockPaperScissors
             
             var text1 = _playerCount > 0 ? 
                 $"* You won {_playerCount} time(s)" : 
-                $"* You lost all against the computer";
+                $"* You won none against the computer";
 
             var computerCount = _gameNumber - _playerCount - _drawCount;
             var text2 = computerCount > 0 ?
                     $"* The computer won {computerCount} time(s)" :
-                    "* The computer lost all against you";
+                    "* The computer won none against you";
             
             var text3 = _drawCount > 0 ? $"* Number of draws : {_drawCount}" : "* No draws";
             
