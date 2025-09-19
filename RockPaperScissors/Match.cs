@@ -1,5 +1,4 @@
-﻿using System;
-namespace RockPaperScissors
+﻿namespace RockPaperScissors
 {
     public static class Match
     {
@@ -10,9 +9,9 @@ namespace RockPaperScissors
             var m2 = p2.GetMove();
             
             Console.WriteLine($"{p1.Name}: {m1}  vs  {p2.Name}: {m2}");
-            var res = RockPaperScissors.GetResult(m1, m2);
+            var result = RockPaperScissors.GetResult(m1, m2);
             
-            Console.WriteLine(res switch
+            Console.WriteLine(result switch
             {
                 Result.Draw => "Result: Draw",
                 Result.Player1Wins => $"Result: {p1.Name} wins",
@@ -30,7 +29,7 @@ namespace RockPaperScissors
                 l2.ObserveOpponent(m1);
             }
 
-            return res;
+            return result;
         }
     }
 }
