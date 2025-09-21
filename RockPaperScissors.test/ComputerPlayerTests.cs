@@ -8,7 +8,13 @@ namespace RockPaperScissors.test
         [Fact]
         public void Computer_UsesRandomSequence()
         {
-            var rng = new SequenceRandom(0, 1, 2, 1, 0);
+            var rng = new SequenceRandom(
+                (int) Move.Rock, 
+                (int) Move.Paper, 
+                (int) Move.Scissors, 
+                (int) Move.Paper, 
+                (int) Move.Rock);
+            
             var cpu = new ComputerPlayer("CPU", rng);
 
             var moves = new List<Move>()
@@ -17,13 +23,10 @@ namespace RockPaperScissors.test
                Move.Paper,
                Move.Scissors,
                Move.Paper,
-               Move.Rock
+               Move.Paper
             };
             
-            Assert.All(moves, move =>
-            {
-                Assert.Equal(move, cpu.GetMove());
-            });
+            Assert.All(moves, move => Assert.Equal(move, cpu.GetMove()));
         }
     }
 }
