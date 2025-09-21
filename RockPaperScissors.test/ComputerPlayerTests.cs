@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Xunit;
 
 namespace RockPaperScissors.test
@@ -9,11 +10,20 @@ namespace RockPaperScissors.test
         {
             var rng = new SequenceRandom(0, 1, 2, 1, 0);
             var cpu = new ComputerPlayer("CPU", rng);
-            Assert.Equal(Move.Rock, cpu.GetMove());
-            Assert.Equal(Move.Paper, cpu.GetMove());
-            Assert.Equal(Move.Scissors, cpu.GetMove());
-            Assert.Equal(Move.Paper, cpu.GetMove());
-            Assert.Equal(Move.Rock, cpu.GetMove());
+
+            var moves = new List<Move>()
+            {
+               Move.Rock,
+               Move.Paper,
+               Move.Scissors,
+               Move.Paper,
+               Move.Rock
+            };
+            
+            Assert.All(moves, move =>
+            {
+                Assert.Equal(move, cpu.GetMove());
+            });
         }
     }
 }

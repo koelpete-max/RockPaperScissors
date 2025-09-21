@@ -19,10 +19,13 @@ namespace RockPaperScissors.test
         [Theory]
         [InlineData("r", Move.Rock)]
         [InlineData("rock", Move.Rock)]
+        [InlineData("Rock", Move.Rock)]
         [InlineData("p", Move.Paper)]
+        [InlineData("P", Move.Paper)]
         [InlineData("paper", Move.Paper)]
         [InlineData("s", Move.Scissors)]
         [InlineData("scissors", Move.Scissors)]
+        [InlineData("sCissoRs", Move.Scissors)]
         public void TryParseMove_Parses(string input, Move expected)
         {
             Assert.True(RockPaperScissors.TryParseMove(input, out var mv));
